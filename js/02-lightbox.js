@@ -1,30 +1,24 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 const options = {
-    captionPosition: 'alt',
+    captionsData: 'alt',
     captionDelay: 250,
 
   };
 
 const ulEl = document.querySelector('.gallery');
 
-galleryItems.forEach(({ original, preview, description }) =>{
-    const liEl = document.createElement('li');
-    liEl.classList.add('gallery__item');
-    
-const link = document.createElement('a');
-    link.classList.add('gallery__link');
-    link.href = original;
-    
-const imgEl = document.createElement('img');
-    imgEl.classList.add('gallery__image');
-    imgEl.src = preview;
-    imgEl.alt = description;
+const galleryEl = gallery(galleryItems);
+ulEl.insertAdjacentHTML('beforeend', galleryEl);
 
-    link.append(imgEl);
-    liEl.append(link);
-    ulEl.append(liEl);
-});
+function gallery(galleryItems) {
+    return galleryItems.map(({ original,preview, description }) => {
+        return   `<li class="gallery__item">
+        <a class="gallery__link" href='${original}'>
+        <img class="gallery__image" src ='${preview}'
+        alt='${description}''/></a></li>`;
+    }).join("");
+}
 
 new SimpleLightbox('.gallery a', options);
 

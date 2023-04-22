@@ -30,9 +30,9 @@ function onClickImg(ev) {
     
     ulEl.addEventListener('keydown', (ev) => {
     if(ev.code === 'Escape' || ev.code === 'Enter') {
-        instance.close()
+        instance.close();
+       ulEl.removeEventListener('keydown', onClickImg);
     }
     })
-
-}
+} 
 console.log(galleryItems);
