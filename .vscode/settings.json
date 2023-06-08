@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["simplelightbox"]
+  "cSpell.words": ["simplelightbox"],
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
